@@ -6,12 +6,31 @@ readme = "README.md"
 authors = [
     { name = "michalklos", email = "galeo09@gmail.com" }
 ]
-requires-python = ">=3.11"
-dependencies = []
+requires-python = ">=3.14"
+dependencies = [
+    "fastmcp>=4.1.0",
+    "garmin-fit-sdk>=21.218.0",
+    "httpx>=0.28.1",
+    "keyring>=25.7.0",
+    "mcp>=2.3.0",
+    "pydantic>=2.14.1",
+    "pydantic-settings>=2.16.0",
+    "rich>=15.0.0",
+    "typer>=0.27.3",
+]
 
 [project.scripts]
 personal-trainer-agent = "personal_trainer_agent:main"
+get-oauth-token = "scripts.get_oauth_token:main"
 
 [build-system]
 requires = ["uv_build>=0.13.1,<0.14.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.17.0",
+]
